@@ -21,14 +21,14 @@ function playRound(playerSelection, computerSelection){
 
 function game() {
     let gameResult = 0
-    for(let i=0; i<5; i++){
+
         let roundResult = playRound(window.prompt("Rock, paper or scissor?"), computerPlay())
         console.log(roundResult[0])
         if(roundResult[0]==="P") gameResult++
         if(roundResult[0]==="C") gameResult--
         console.log(roundResult)
         console.log(gameResult)
-    }
+    
     if(gameResult<0) return "CPU wins"
     if(gameResult>0) return "Player wins"
     else return "It's a tie"
