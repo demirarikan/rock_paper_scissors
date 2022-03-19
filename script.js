@@ -1,3 +1,8 @@
+let playerScore = 0;
+let cpuScore = 0;
+let score = ''
+let result = ''
+
 function computerPlay(){
     let result = Math.floor(Math.random() * 3)
     if(result == 0) return "Rock"
@@ -11,31 +16,63 @@ function playRound(playerSelection){
     let cpu = computerSelection.toLowerCase()
     console.log(`Player: ${player}`)
     console.log(`Cpu: ${cpu}`)
-    if(player === cpu) return "It's a tie!"
-    if(player === "rock" && cpu === "paper") return `CPU wins, ${cpu} beats ${player}`
-    if(player === "rock" && cpu === "scissor") return `Player wins, ${player} beats ${cpu}`
-    if(player === "paper" && cpu === "rock") return `Player wins, ${player} beats ${cpu}`
-    if(player === "paper" && cpu === "scissor") return `CPU wins, ${cpu} beats ${player}`
-    if(player === "scissor" && cpu === "rock") return `CPU wins, ${cpu} beats ${player}`
-    if(player === "scissor" && cpu === "paper") return `Player wins, ${player} beats ${cpu}`
+
+    if(player === cpu){
+        result = "It's a tie!"
+    } 
+   
+    if(player === "rock" && cpu === "paper" || 
+            player === "paper" && cpu === "scissor" ||
+            player === "scissor" && cpu === "rock") {
+        cpuScore += 1
+        if(cpuScore === 5){
+            endGame()
+        }
+        result = `CPU wins, ${cpu} beats ${player}`
+        score = `${playerScore} - ${cpuScore}`
+    }
+
+    if(player === "rock" && cpu === "scissor" ||
+            player === "paper" && cpu === "rock" ||
+            player === "scissor" && cpu === "paper") {
+        playerScore += 1
+        if(playerScore === 5){
+            endGame()
+        }
+        result = `Player wins, ${player} beats ${cpu}`
+        score = `${playerScore} - ${cpuScore}`
+    }
 }
+
+
 
 const rockBtn = document.querySelector('#rockbtn')
 const paperBtn = document.querySelector('#paperbtn')
 const scissorBtn = document.querySelector('#scissorbtn')
+const resultDiv = document.querySelector('.result')
+const scoreDiv = document.querySelector('.score')
 
+
+function updatePage(){
+    scoreDiv.textContent = score
+    resultDiv.textContent = result
+}
 
 rockBtn.addEventListener('click', function(){
     playRound('rock')
+    updatePage()
 })
 
 paperBtn.addEventListener('click', function(){
     playRound('paper')
+    updatePage()
 })
 
 scissorBtn.addEventListener('click', function(){
     playRound('scissor')
+    updatePage()
 })
+
 
 
 // function game() {
