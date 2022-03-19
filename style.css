@@ -37,6 +37,14 @@ img:hover {
 }
 
 .result {
-    padding-top: 30px;
+    margin-top: 40px;
+}
+
+button {
+    font-size: large;
+    font-weight: 400;
+    border: 5px solid;
+    padding: 10px 15px;
+    background-color: white;
 }
 

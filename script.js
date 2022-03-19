@@ -56,6 +56,8 @@ function playRound(playerSelection){
 }
 
 function endGame(winner){
+    score = `${playerScore} - ${cpuScore}`
+    scoreDiv.textContent = score
     if(winner === 'player'){
         resultDiv.textContent = 'YOU WIN!'
     } else {
