@@ -1,0 +1,24 @@
+body {
+    background-color: yellow;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+
+}
+
+.title {
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.result,
+.score {
+    font-size: 50px;
+    font-weight: 600;
+}
+
