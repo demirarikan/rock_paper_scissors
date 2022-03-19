@@ -1,5 +1,5 @@
 body {
-    background-color: yellow;
+    background-color: rgb(255, 234, 0);
     font-family: 'Lato', sans-serif;
     text-align: center;
 
@@ -16,9 +16,27 @@ body {
     gap: 25px;
 }
 
+img {
+    transition: transform 250ms;
+}
+
+img:hover {
+    transform: translateY(-10px);
+}
+
+.rock,
+.paper,
+.scissor {
+    max-width: 260px;
+}
+
 .result,
 .score {
     font-size: 50px;
     font-weight: 600;
+}
+
+.result {
+    padding-top: 30px;
 }
 
